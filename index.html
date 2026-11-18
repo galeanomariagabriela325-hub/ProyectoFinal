@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Web - Fanzine</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 </head>
+
 <body>
-    
+
+    <header>
+        <h1> MARRY CHRISTAMAS YOU FILTHY ANIMAL</h1>
+        <p>Leeme que soy chevere</p>
+    </header>
+
+    <main>
+
+        <div class="contenedor-libro">
+
+            <div id="libro">
+
+                <!-- PORTADA -->
+                <div class="pagina portada" data-density="hard">
+                    <h1> Vintage chritsmas</h1>
+                    <p>Edición especial</p>
+                    <img src="assets/portada" alt="Portada">
+                </div>
+                <div class="pagina">
+                    <h2>Ciudades</h2>
+                    <p>
+                    Para mi la navidad empieza por cómo se siente el ambiente en nuestro alrededor, desde que empieza diciembre uno siente cierto tipo de energía o espacios más felices y tranquilos. Se siente un poco de nostalgia y alegría navideña. El ambiente cambia según donde estés, en Europa se ven los mercados navideños, en estados unidos se ven edificios altos, extravagantes con mucha decoración y personas y en latinoamérica se ven muchas iluminaciones.
+                    </p>
+                    <img src="assets/ciudades" alt="Contenido">
+                </div>
+
+                <div class="pagina">
+                    <h2>Disney</h2>
+                    <p>
+                       Tengo una fascinación por disney, desde chiquita encuentro cierta confianza o soporte frente a lo que representan los parques y la manera en la que le generan felicidad a las personas cada vez que van.
+                       De las primeras cosas que pienso cuando empieza navidad es en cómo se deben sentir los parques con todas las decoraciones y personajes pasando por ahí, en realidad se debe sentir mágico y contagiando el espíritu navideño”
+
+                    </p>
+                    <img src="assets/disney" alt="Contenido">
+                </div>
+                <div class="pagina">
+                    <h2>Tele</h2>
+                    <p>
+                      
+                    </p>
+                    <img src="assets/disney" alt="Contenido">
+
+                <div class="pagina contraportada" data-density="hard">
+                    <h2>¡Gracias por leerme</h2>
+                    <img src="assets/cierre" alt="Contenido">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="controles">
+            <button id="anterior">← Anterior</button>
+            <span id="numero-pagina">Página 1</span>
+            <button id="siguiente">Siguiente →</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
 </html>

@@ -18,3 +18,6 @@ Como primera parte Subo los assets, los cuales incluen todas las imagenes, audio
 ![newyorker3](image-8.png)
 ![newyorker4](image-9.png)
 ![newyorker5](image-10.png)
+
+En este segundo avance para la preentrega organice toda la libreria para que la pagina tenga ese efecto de libro, ultice las guias de github https://nodlik.github.io/react-pageflip/
+De ahí lo organice con su respectivo css que nos ayuda a que se vea bien en apariencia (tiene como se ve el libro en general y las especificaciones por pagina) y java script el cual nos ayuda con el movimiento de las paginas 
