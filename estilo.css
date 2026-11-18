@@ -1,5 +1,4 @@
 
-<estilo>
   :root {
     /* This variable keeps the body and the dummy covers perfectly synchronized,
        allowing you to change the site color easily while maintaining a seamless look. */
@@ -178,5 +177,3 @@ body {
 .ambient-light {
     animation: ambientPulse 8s ease-in-out infinite;
 }
-
-</estilo>
