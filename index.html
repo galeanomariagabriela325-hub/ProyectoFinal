@@ -173,30 +173,26 @@
     const musicButton = document.getElementById("btn-music");
     const musicLabel = document.getElementById("music-label");
 
-    let musicPlayer;
+    let musicPlayer = null;
     let musicPlaying = false;
+
+    window.onYouTubeIframeAPIReady = function () {
+        musicPlayer = new YT.Player("youtube-player", {
+            events: {
+                onReady: function () {
+                    musicLabel.textContent = "Play me";
+                    console.log("YouTube player ready");
+                }
+            }
+        });
+    };
 
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
 
-    function onYouTubeIframeAPIReady() {
-        musicPlayer = new YT.Player("youtube-player", {
-            events: {
-                onReady: function () {
-                    console.log("Reproductor listo");
-                },
-                onStateChange: function (event) {
-                    if (event.data === YT.PlayerState.ENDED) {
-                        musicPlayer.playVideo();
-                    }
-                }
-            }
-        });
-    }
-
     musicButton.addEventListener("click", function () {
-        if (!musicPlayer || !musicPlayer.playVideo) {
+        if (!musicPlayer) {
             musicLabel.textContent = "Loading...";
             return;
         }

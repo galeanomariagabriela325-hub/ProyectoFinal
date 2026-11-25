@@ -142,11 +142,14 @@ body {
     image-rendering: auto;
     border: 2px solid #fffaf0;
     box-shadow: 0 2px 6px rgba(40, 25, 10, 0.22);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+position: relative;
 }
 @media (hover: hover) {
     .img-placeholder img:hover {
         transform: scale(1.12);
-        z-index: 10;
+        z-index: 20;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
     }
 }
