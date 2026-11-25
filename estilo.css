@@ -1,25 +1,24 @@
 
-  :root {
-    /* This variable keeps the body and the dummy covers perfectly synchronized,
-       allowing you to change the site color easily while maintaining a seamless look. */
-    --bg-color: #0b0f19; 
-    --bg-paper: #fcfbfa;
-    --text-dark: #1a1a1a;
-    --accent-gold: black;
+:root {
+    --bg-color: #14291f;
+    --bg-paper: #f5edda;
+    --text-dark: #28251e;
+    --accent-gold: #c9a45c;
 }
 
-/* Force vertical scrollbars and hide horizontal ones to prevent window size fluctuations */
+/* Force vertical scrollbars and hide horizontal ones */
 html {
-    overflow-y: scroll; 
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--bg-color);
+    background:
+        radial-gradient(ellipse at top, #294735 0%, #14291f 65%, #0d1b14 100%);
     color: #fff;
     overflow-x: hidden;
-    overscroll-behavior-y: auto; /* Prevents pull-to-refresh on mobile */
+    overscroll-behavior-y: auto;
 }
 
 .font-playfair {
@@ -32,41 +31,40 @@ body {
     top: 1.5rem;
     left: 1.5rem;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.8);
+    background: #f5edda;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
 }
 
 .nav-home:hover {
-    background: white;
+    background: #c9a45c;
     transform: scale(1.1);
 }
 
 .nav-home i {
     font-size: 1.2rem;
-    color: var(--accent-gold);
+    color: #8b252c;
 }
 
-/* 1. FLUID WRAPPER: Responsive sizing for all devices with locked aspect ratios */
+/* 1. FLUID WRAPPER */
 .flip-book-wrapper {
     width: 100%;
-    /* Scales between mobile width and a max desktop size */
-    max-width: clamp(320px, 90vw, 1000px); 
+    max-width: clamp(320px, 90vw, 1000px);
     margin: 0 auto;
-    perspective: 2000px; /* Deepened perspective for premium 3D feel */
+    perspective: 2000px;
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 2. PAGES: A4 aspect ratio with refined shadows */
+/* 2. PAGES */
 .page-content {
     width: 100%;
     height: 100%;
@@ -75,25 +73,23 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     color: var(--text-dark);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.08);
+    padding: 9px;
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Spine overlay above image */
-.spine-right .page-content::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-
-    background:
-    linear-gradient(
+/* Spine overlay */
+.spine-right .page-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(
         to right,
         rgba(0,0,0,0.25) 0%,
         rgba(0,0,0,0.08) 5%,
@@ -102,15 +98,13 @@ body {
     );
 }
 
-.spine-left .page-content::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-
-    background:
-    linear-gradient(
+.spine-left .page-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(
         to left,
         rgba(0,0,0,0.25) 0%,
         rgba(0,0,0,0.08) 5%,
@@ -119,32 +113,56 @@ body {
     );
 }
 
-/* Disable spine effect on cover pages */
-.dummy-cover::before{
-    display:none !important;
+/* Disable spine effect on covers */
+.dummy-cover::before {
+    display: none !important;
 }
 
-/* 3. PREMIUM IMAGES: Edge-to-edge coverage */
-.page-content img,
+/* 3. COLLAGE: All images arranged inside each page */
 .img-placeholder {
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 6px;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #eee3c9;
+    border: 2px solid #c9a45c;
+}
 
-    display:block;
-    pointer-events:none;
-    -webkit-user-drag:none;
+/* Individual collage images */
+.img-placeholder img {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    image-rendering: auto;
+    border: 2px solid #fffaf0;
+    box-shadow: 0 2px 6px rgba(40, 25, 10, 0.22);
+}
 
-    transform:translateZ(0);
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
+/* Last image in a 10-image collage gets a wider space */
+.img-placeholder img:last-child:nth-child(3n + 1) {
+    grid-column: span 2;
+}
 
-    image-rendering:auto;
+/* Four-photo personal page */
+.img-placeholder:has(img:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 /* 5. SEAMLESS SOLID COVER SUPPORT */
-/* Ensure the page wrapper and the content match the background color perfectly.
-   Being opaque, they completely block underlying layers during transitions. */
 .page:has(.dummy-cover) {
     background: var(--bg-color) !important;
     background-color: var(--bg-color) !important;
@@ -158,22 +176,58 @@ body {
     border: none !important;
 }
 
-/* 6. SMOOTH TRANSFORM WRAPPER: Hardware accelerated */
+/* 6. SMOOTH TRANSFORM WRAPPER */
 #transform-wrapper {
-    /* translate3d forces GPU acceleration for buttery smooth panning/zooming */
     transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
     transform-origin: center center;
 }
+
 #transform-wrapper.is-dragging {
-    transition: none; /* Instant feedback while dragging */
+    transition: none;
 }
 
-/* Subtle pulse for the ambient light */
+/* Ambient light */
 @keyframes ambientPulse {
-    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.05); }
+    0%, 100% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
 }
+
 .ambient-light {
     animation: ambientPulse 8s ease-in-out infinite;
+}
+
+/* Christmas colors for the book controls */
+#btn-prev,
+#btn-next,
+#btn-zoom-out,
+#btn-zoom-in,
+#btn-zoom-reset {
+    color: #f5edda;
+}
+
+#btn-prev:hover,
+#btn-next:hover,
+#btn-zoom-out:hover,
+#btn-zoom-in:hover,
+#btn-zoom-reset:hover {
+    color: #e2bd70;
+}
+
+/* Responsive collage */
+@media (max-width: 600px) {
+    .img-placeholder {
+        gap: 4px;
+        padding: 5px;
+    }
+
+    .img-placeholder img {
+        border-width: 1px;
+    }
 }

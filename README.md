@@ -35,3 +35,5 @@ java.js
 En este segundo avance para la preentrega organice toda la libreria para que la pagina tenga ese efecto de libro, ultice las guias de github https://github.com/frostyfoxie/flip-book/blob/main/index.html
 De ahí lo organice con su respectivo css que nos ayuda a que se vea bien en apariencia (tiene como se ve el libro en general y las especificaciones por pagina) y java script el cual nos ayuda con el movimiento de las paginas 
 Me toco hacer bastantes cambios pues no me estaba leyendo el css, por lo que me di cuenta que lo estaba llamando mal desde html y le hice los cambios pertinentes, lo mismo con java script, se estaba llamando mal desde el html y lo arregle. 
+Despues de lograr tener la libreria que me diera el formato que quiero, procedo a ir corrigiendo y agregando la informacion personal para mi revista navideña. Lo primero que hago es quitar las imagenes de la libreria y agregar las mias que guarde como assets dentro de mis archisvos, cada pagina del libro sera una sub carpeta de mis assets. 
+Por otro lado en la parte del .css la libreia tenia colores muy azule sy formales por loq ue le cambie un poco el formato para que se viera mas navideño
