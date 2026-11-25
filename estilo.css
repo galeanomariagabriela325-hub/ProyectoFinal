@@ -148,9 +148,9 @@ body {
 }
 @media (hover: hover) {
     .img-placeholder img:hover {
-        transform: scale(1.12);
+        transform: scale(3);
         z-index: 20;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     }
 }
 .img-placeholder img:last-child:nth-child(3n + 1) {
