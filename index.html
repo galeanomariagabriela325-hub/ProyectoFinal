@@ -159,7 +159,9 @@
 
     </main>
             </div>
-       <div id="background-music" style="position:fixed; width:1px; height:1px; overflow:hidden; opacity:0; pointer-events:none;">
+<div id="background-music" style="position:fixed; left:-220px; top:0; width:200px; height:200px; opacity:0; pointer-events:none;">
+    <div id="youtube-player"></div>
+</div>
     <iframe
         id="youtube-player"
         width="1"
@@ -174,14 +176,40 @@
     const musicLabel = document.getElementById("music-label");
 
     let musicPlayer = null;
+    let musicReady = false;
     let musicPlaying = false;
 
     window.onYouTubeIframeAPIReady = function () {
         musicPlayer = new YT.Player("youtube-player", {
+            width: "200",
+            height: "200",
+            videoId: "-tJtsKngXJU",
+            playerVars: {
+                controls: 0,
+                playsinline: 1
+            },
             events: {
                 onReady: function () {
+                    musicReady = true;
                     musicLabel.textContent = "Play me";
-                    console.log("YouTube player ready");
+                },
+                onStateChange: function (event) {
+                    if (event.data === YT.PlayerState.PLAYING) {
+                        musicPlaying = true;
+                        musicLabel.textContent = "Pause";
+                    }
+
+                    if (
+                        event.data === YT.PlayerState.PAUSED ||
+                        event.data === YT.PlayerState.ENDED
+                    ) {
+                        musicPlaying = false;
+                        musicLabel.textContent = "Play me";
+                    }
+                },
+                onError: function (event) {
+                    musicLabel.textContent = "Unavailable";
+                    console.log("YouTube error:", event.data);
                 }
             }
         });
@@ -192,19 +220,15 @@
     document.head.appendChild(tag);
 
     musicButton.addEventListener("click", function () {
-        if (!musicPlayer) {
+        if (!musicReady) {
             musicLabel.textContent = "Loading...";
             return;
         }
 
         if (musicPlaying) {
             musicPlayer.pauseVideo();
-            musicPlaying = false;
-            musicLabel.textContent = "Play me";
         } else {
             musicPlayer.playVideo();
-            musicPlaying = true;
-            musicLabel.textContent = "Pause";
         }
     });
 </script>
