@@ -41,3 +41,4 @@ Acomode el libro en css pues senti que en la libreria original estaba muy lejos 
 La revista se veia un poco plana, ya que solo se le veian las imagenes como un collage, por lo que una transicion para que cuando se pase el mouse la imagen se agrande y se pueda ver mucho mejor. 
 Para agregar los detalles finales, con frame en index agregue una cancion de navidad para que este mas ambientado a navidad. 
 Por ultimo le agregue unos copos de nieve al fondo de la pagina y con un @keyframe para poder animar el elemnto de los copos y que estos caigan. 
+Tuve problemas para poner la musica apenas se abriera la pagina por lo que le agregue un boton 
