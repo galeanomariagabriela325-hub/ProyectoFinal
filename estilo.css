@@ -19,6 +19,7 @@ body {
     color: #fff;
     overflow-x: hidden;
     overscroll-behavior-y: auto;
+    min-height: 100vh;
 }
 
 .font-playfair {
@@ -54,8 +55,8 @@ body {
 
 /* 1. FLUID WRAPPER */
 .flip-book-wrapper {
-    width: 100%;
-    max-width: clamp(320px, 90vw, 1000px);
+    width: 96vw;
+    max-width: 1200px;
     margin: 0 auto;
     perspective: 2000px;
     background-color: transparent;
@@ -131,8 +132,10 @@ body {
     overflow: hidden;
     background: #eee3c9;
     border: 2px solid #c9a45c;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
-
 /* Individual collage images */
 .img-placeholder img {
     width: 100%;
@@ -150,7 +153,13 @@ body {
     border: 2px solid #fffaf0;
     box-shadow: 0 2px 6px rgba(40, 25, 10, 0.22);
 }
-
+@media (hover: hover) {
+    .img-placeholder img:hover {
+        transform: scale(1.12);
+        z-index: 10;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+}
 /* Last image in a 10-image collage gets a wider space */
 .img-placeholder img:last-child:nth-child(3n + 1) {
     grid-column: span 2;
@@ -230,4 +239,20 @@ body {
     .img-placeholder img {
         border-width: 1px;
     }
+}
+header {
+    color: #fff;
+    position: relative;
+    z-index: 50;
+}
+
+#btn-prev,
+#btn-next,
+#btn-zoom-out,
+#btn-zoom-in,
+#btn-zoom-reset {
+    color: #f5edda;
+    background-color: rgba(255, 255, 255, 0.12);
+    position: relative;
+    z-index: 60;
 }
