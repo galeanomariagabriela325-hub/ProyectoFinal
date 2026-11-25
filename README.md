@@ -38,3 +38,6 @@ Me toco hacer bastantes cambios pues no me estaba leyendo el css, por lo que me 
 Despues de lograr tener la libreria que me diera el formato que quiero, procedo a ir corrigiendo y agregando la informacion personal para mi revista navideña. Lo primero que hago es quitar las imagenes de la libreria y agregar las mias que guarde como assets dentro de mis archisvos, cada pagina del libro sera una sub carpeta de mis assets. 
 Por otro lado en la parte del .css la libreia tenia colores muy azule sy formales por loq ue le cambie un poco el formato para que se viera mas navideño. 
 Acomode el libro en css pues senti que en la libreria original estaba muy lejos de la vista del lector 
+La revista se veia un poco plana, ya que solo se le veian las imagenes como un collage, por lo que una transicion para que cuando se pase el mouse la imagen se agrande y se pueda ver mucho mejor. 
+Para agregar los detalles finales, con frame en index agregue una cancion de navidad para que este mas ambientado a navidad. 
+Por ultimo le agregue unos copos de nieve al fondo de la pagina y con un @keyframe para poder animar el elemnto de los copos y que estos caigan. 
